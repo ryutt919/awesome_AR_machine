@@ -42,5 +42,17 @@ board_cellsize = 0.022
 video = cv.VideoCapture(video_file)<br>
 
 if not video.isOpened():<br>
-    print('비디오를 읽을 수 없습니다.')```
+    print('비디오를 읽을 수 없습니다.')
+
+
+---
+# 결과
+
+
+https://github.com/user-attachments/assets/58cc3f2a-e24a-4868-8714-f1b52034af4e
+
+
+![boxing_AR2](https://github.com/user-attachments/assets/cc6ea2cf-5e76-4a60-bbab-e96fc13dd28d)
+
+![boxing_AR1](https://github.com/user-attachments/assets/5839b4b4-ae89-4b8a-be01-61d494e71d68)
 
