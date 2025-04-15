@@ -37,8 +37,8 @@ K = np.array([[859.06054177, 0, 973.44260266],
 dist_coeff = np.array([0.02487478, -0.0966195, 0.00617931, 0.00395589, 0.08269927])  # 왜곡 계수
 
 # 체스보드 코너 찾기 및 포즈 추정
-board_pattern = (10, 7)<br>
-board_cellsize = 0.022<br>
+board_pattern = (10, 7)
+board_cellsize = 0.022
 video = cv.VideoCapture(video_file)<br>
 
 if not video.isOpened():<br>
@@ -46,6 +46,9 @@ if not video.isOpened():<br>
 
 # 3D 박스와 텍스트를 그리기 위한 함수 정의
 def draw_text(text, position_3d, color=(0, 0, 0), scale=1.0, thickness=3):
+    """
+    3D 위치에 텍스트를 투영하여 화면에 출력
+    """
     pts, _ = cv.projectPoints(np.array([position_3d], dtype=np.float32), rvec, tvec, K, dist_coeff)
     pt_float = pts[0][0]
     if np.all(np.isfinite(pt_float)):
@@ -54,17 +57,17 @@ def draw_text(text, position_3d, color=(0, 0, 0), scale=1.0, thickness=3):
 
 # AR 객체와 텍스트 투영
 while True:
+    # 비디오에서 이미지 읽기
     valid, img = video.read()
     if not valid:
         break
     
+    # 체스보드 코너 찾기
     success, img_points = cv.findChessboardCorners(img, board_pattern)
     if success:
+        # PnP 문제 풀기 (회전 벡터와 이동 벡터 계산)
         ret, rvec, tvec = cv.solvePnP(obj_points, img_points, K, dist_coeff)
-        draw_text("Hello AR", [5, 3.5, -1.0], color=(255, 215, 0), scale=1.2)  # 텍스트 3D 위치
-    cv.imshow('Pose Estimation', img)
-    if cv.waitKey(10) == 27:
-        break
-
-video.release()
-cv.destroyAllWindows()
+        
+        # 텍스트 3D 위치에 투영
+        draw_text("Hello AR", [5, 3.5, -1.0], color=(255, 215, 0), scale=1.2)
+    
