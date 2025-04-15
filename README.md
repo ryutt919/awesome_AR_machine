@@ -23,35 +23,6 @@ draw_text() 함수는 3D 공간에서 텍스트를 2D 화면으로 변환하여,
 5. 실시간 비디오 처리
 비디오 파일을 읽어 실시간으로 각 프레임을 처리하고, 추적된 3D 객체와 텍스트를 영상에 올려 AR 효과를 구현합니다.
 
-사용 방법
-1. 필요한 라이브러리 설치
-이 프로젝트는 Python 3.x 환경에서 실행됩니다. 먼저 아래와 같이 필요한 라이브러리를 설치하세요.
-
-bash
-복사
-pip install numpy opencv-python
-2. 비디오 파일 준비
-AR 효과를 적용할 비디오 파일을 준비하고, 해당 비디오 파일 경로를 video_file 변수에 설정합니다. 예를 들어:
-
-python
-복사
-video_file = './data/myChess2.mp4'
-3. 코드 실행
-프로그램을 실행하면, 체스보드와 함께 AR 객체와 텍스트가 실시간으로 비디오에 투영되는 모습을 볼 수 있습니다.
-
-bash
-복사
-python your_script_name.py
-4. 키 이벤트
-ESC: 프로그램 종료
-
-Space: 일시 정지
-
-코드 예시
-python
-복사
-import numpy as np
-import cv2 as cv
 
 # 비디오와 카메라 보정 파라미터 설정
 video_file = './data/myChess2.mp4'
