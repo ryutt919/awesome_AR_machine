@@ -37,7 +37,8 @@ K = np.array([[859.06054177, 0, 973.44260266],
 dist_coeff = np.array([0.02487478, -0.0966195, 0.00617931, 0.00395589, 0.08269927])  # 왜곡 계수
 
 # 체스보드 코너 찾기 및 포즈 추정
-```board_pattern = (10, 7)
+```python
+board_pattern = (10, 7)
 board_cellsize = 0.022
 video = cv.VideoCapture(video_file)<br>
 
