@@ -29,6 +29,7 @@ draw_text() 함수는 3D 공간에서 텍스트를 2D 화면으로 변환하여,
 
 # 비디오와 카메라 보정 파라미터 설정
 video_file = './data/myChess2.mp4' <br>
+캘리브레이션 수행을 통해 얻은 값 <br>
 K = np.array([[859.06054177, 0, 973.44260266], 
               [0, 859.57809559, 554.72652988], 
               [0, 0, 1]])  # 카메라 내부 행렬
@@ -36,11 +37,11 @@ K = np.array([[859.06054177, 0, 973.44260266],
 dist_coeff = np.array([0.02487478, -0.0966195, 0.00617931, 0.00395589, 0.08269927])  # 왜곡 계수
 
 # 체스보드 코너 찾기 및 포즈 추정
-board_pattern = (10, 7)
-board_cellsize = 0.022
-video = cv.VideoCapture(video_file)
+board_pattern = (10, 7)<br>
+board_cellsize = 0.022<br>
+video = cv.VideoCapture(video_file)<br>
 
-if not video.isOpened():
+if not video.isOpened():<br>
     print('비디오를 읽을 수 없습니다.')
 
 # 3D 박스와 텍스트를 그리기 위한 함수 정의
