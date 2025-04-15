@@ -43,7 +43,7 @@ video = cv.VideoCapture(video_file)<br>
 
 if not video.isOpened():<br>
     print('비디오를 읽을 수 없습니다.')
-
+```
 
 ---
 # 결과
